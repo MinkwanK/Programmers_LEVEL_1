@@ -1,4 +1,4 @@
-int solution(string dartResult) {
+int solution(string dartResult ) {
     int answer = 0;
     vector<int> num;
      bool digitcheck = false;
