@@ -1,0 +1,72 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+//우선 하나의 최대값을 구해놓는다.
+//명함 카드는 하나의 최댓값의 가로 또는 세로를 무조건 가져야한다.
+//나머지 하나만 구하면 끝!
+
+//max값을 가진 명함을 바꿔가면서 찾아보자.,
+int solution(vector<vector<int>> sizes) {
+    int answer = 0;
+    int max = 0;
+    int max_turn = 0; //0은 가로 1은 세로
+    int w = 0;
+    int h = 0;
+    int loc = 0;  //최종 max값 위치 기록.
+    
+    for(int i=0;i<sizes.size();i++)
+    {
+        if(sizes[i][0] > max)
+        {
+            max = sizes[i][0];
+            max_turn = 0;
+            loc = i;
+        
+        }
+        if(sizes[i][1] > max)
+        {
+            max = sizes[i][1];
+            max_turn = 1;
+            loc = i;
+        }
+    }                               //최댓값 구하는 반복문
+    
+ 
+    if(max_turn == 0) //max값이 가로에 있을때!
+    {
+        w = sizes[loc][0];
+        h = sizes[loc][1];
+        
+        for(int i=0;i<sizes.size();i++)
+        {
+            if(sizes[i][0] > h && sizes[i][1] > h) //둘다 h보다 크면 그나마 작은걸 h에 넣는다.
+            {
+                if(sizes[i][0] > sizes[i][1])
+                    h = sizes[i][1];
+                else
+                    h = sizes[i][0];
+            }
+        }
+        
+    }
+    
+    else if(max_turn == 1) //max값이 세로에 있을때를 의미한다!
+    {
+        w = sizes[loc][0];
+        h = sizes[loc][1];
+        
+        for(int i=0;i<sizes.size();i++)
+        {
+            if(sizes[i][0] > w && sizes[i][1] > w) //둘다 h보다 크면 그나마 작은걸 h에 넣는다.
+            {
+                if(sizes[i][0] > sizes[i][1])
+                    w = sizes[i][1];
+                else
+                    w = sizes[i][0];
+            }
+        }
+    }
+    
+    return w*h;
+}
