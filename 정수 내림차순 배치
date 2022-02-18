@@ -1,0 +1,65 @@
+#include <string>
+
+#include <vector>
+
+​
+
+using namespace std;
+
+​
+
+long long solution(long long n)
+
+{
+
+long long answer = 0;
+
+string a = to_string(n);
+
+string b="";
+
+int max;
+
+while (!a.empty())
+
+{
+
+max = a[0] - '0';
+
+int max_location = 0;
+
+for (int i = 0; i < a.length(); i++)
+
+{
+
+if (max < a[i] - '0')
+
+{
+
+max = a[i] - '0';
+
+max_location = i;
+
+}
+
+}
+
+a.erase(a.begin() + max_location);
+
+b.push_back(max + '0');
+
+}
+
+for (int i = 0; i < b.length(); i++)
+
+{
+
+answer = stoll(b);
+
+}
+
+​
+
+return answer;
+
+}
