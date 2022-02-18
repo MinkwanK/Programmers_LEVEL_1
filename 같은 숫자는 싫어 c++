@@ -1,0 +1,57 @@
+#include <vector>
+
+#include <iostream>
+
+​
+
+using namespace std;
+
+​
+
+vector<int> solution(vector<int> arr)
+
+{
+
+vector<int> answer;
+
+int num;
+
+for (int i = 0; i < size(arr); i++)
+
+{
+
+if (size(answer) == 0)
+
+{
+
+answer.push_back(arr[i]);
+
+num = arr[i];
+
+}
+
+else
+
+{
+
+if (arr[i] != num)
+
+{
+
+answer.push_back(arr[i]);
+
+num = arr[i];
+
+}
+
+}
+
+​
+
+}
+
+​
+
+return answer;
+
+}
