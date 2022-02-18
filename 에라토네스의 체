@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+​
+
+int main()
+
+{
+
+int i, j;
+
+bool check[101];   
+
+​
+
+for (int i = 2; i < 101; i++)
+
+{
+
+check[i] = true;                       
+
+}
+
+​
+
+for (i = 2; i <= 100; i++)
+
+{
+
+if (check[i] == true)
+
+{
+
+cout << i;
+
+for (j = i * i; j <= 100; j += i)
+
+check[j] = false;
+
+}
+
+}
+
+​
+
+return 0;
+
+}
